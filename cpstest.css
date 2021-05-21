@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  display: flex;
+  font-family: sans-serif, "Open Sans", "Gotham Rounded", Roboto, Arial;
+  font-weight: 900;
+  background: #ff7;
+  flex-direction:column;
+  text-align: center;
+}
+button {
+  font-weight:bold;
+  background: #eee;
+  border: 2px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom:5px;
+}button:hover {
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+button:focus {
+  outline: none;
+}
+button[data-click]{
+    font-size: 2rem;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.15);
+  padding:80px 120px;
+}
+button#refresh{
+   font-size:1.25rem;
+   margin:.5px;
+}
+h3{
+  font-size: 1.5rem;
+}
+.popup{
+  height:10%;
+  width:70%;
+  margin:10px;
+  padding:7px 0;
+  background:lightblue;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  animation:fadeIn 9s 1 linear forwards;
+  position: absolute;
+  top:-50px;
+  border-radius: 5px;
+  z-index:1000000000000000;
+  cursor:default;
+  pointer-events:none;
+}
+@keyframes fadeIn{
+  0%{
+   top:-50% 
+  }
+  30%{
+    top:50px;
+  }
+  60%{
+    top:50px;
+  }
+  70%{
+    top:-30%
+  }
+  100%{
+    top:-50%
+  }
+}
+  .futurePopup{
+    position:absolute;
+    top:-50px;
+  }
