@@ -1,5 +1,3 @@
-const {log} = console
-
 function summonPopup(elem){
   if(!elem){
     return;
@@ -23,16 +21,40 @@ if('banned' in localStorage){
 }
 
       var clicks = 0;
-       
+    
+      var time = 4
+   
+      let int = setInterval(() => {
+      if(time > 1){
+      dataAttr('time',0).textContent = time+' seconds left.'
+      time--
+      }
+       else if(time > 0){
+        dataAttr('time',0).textContent = '1 second left.'
+           time--
+       }
+      else{
+        dataAttr('time',0).parentElement.remove()
+      }
+      },1000)
+      
     function handleClick(){
     clicks++
-
+            
     dataAttr('num',0).textContent = 'Clicks: '+clicks
+
+dataAttr('click',0).onkeyup = function(e){
+        if(e.code.toLowerCase() === 'space'){
+         clicks--
+        }
+    }
     }
 
     setTimeout(() => {
 dataAttr('click',0).removeEventListener('click',handleClick)
 
+        dataAttr('click',0).textContent = 'Time\'s Up!'
+        
 dataAttr('future',0).textContent = 'Done!'
         
         summonPopup(dataAttr('future',0))
@@ -61,7 +83,7 @@ if('highscore' in localStorage){
   }
    else if(CPS > +localStorage.getItem('highscore')){
  localStorage.setItem('highscore',CPS)
-    dataAttr('future',0).textContent = 'New HighScore: '+CPS
+    dataAttr('future',0).textContent = 'New Highscore: '+CPS
         
         summonPopup(dataAttr('future',0))
        
@@ -89,4 +111,5 @@ document.addEventListener('keypress',function(e){
     if((e.code.toLowerCase() === 'space' || e.code.toLowerCase() === 'enter') && !e.altKey && !e.ctrlKey && !e.shiftKey && !e.metaKey){
      e.preventDefault()
     }
+    
 })
