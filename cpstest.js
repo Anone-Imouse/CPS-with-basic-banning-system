@@ -34,8 +34,10 @@ if('banned' in localStorage){
            time--
        }
       else{
+         if(dataAttr('time',0)){
         dataAttr('time',0).parentElement.remove()
-      }
+         }
+        }
       },1000)
       
     function handleClick(){
@@ -61,7 +63,7 @@ dataAttr('future',0).textContent = 'Done!'
 
 let CPS = clicks/5
 
-if(CPS >= 8){
+if(CPS >= 10){
     localStorage.setItem('banned',true)
 
         dataAttr('future',0).textContent = 'You\'re a cheater!'
@@ -72,7 +74,7 @@ if(CPS >= 8){
 }
         
 if('highscore' in localStorage){
-  if(+localStorage.getItem('highscore') >= 8){
+  if(+localStorage.getItem('highscore') >= 10){
     localStorage.setItem('banned',true);
 
       dataAttr('future',0).textContent =   'I see that you cheated to get your highscore #banned.'
@@ -110,6 +112,5 @@ else{
 document.addEventListener('keypress',function(e){
     if((e.code.toLowerCase() === 'space' || e.code.toLowerCase() === 'enter') && !e.altKey && !e.ctrlKey && !e.shiftKey && !e.metaKey){
      e.preventDefault()
-    }
-    
+    }  
 })
