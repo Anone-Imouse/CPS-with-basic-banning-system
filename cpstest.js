@@ -19,7 +19,9 @@ function dataAttr(str,i = null){
 if('banned' in localStorage){
    close()
 }
-
+    dataAttr('click',0).onclick = function(e){
+        e.target.onclick = null
+        
       var clicks = 0;
     
       var time = 4
@@ -114,3 +116,4 @@ document.addEventListener('keypress',function(e){
      e.preventDefault()
     }  
 })
+}
