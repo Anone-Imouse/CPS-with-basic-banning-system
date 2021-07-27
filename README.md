@@ -9,3 +9,6 @@ Changelog:
 3. Jun 1, 2021:
   - Added changelog.
   - Added JSON server from source [extendsclass.com](https://extendsclass.com/).
+4. Jul 26, 2021:
+  - Removed JSON server.
+  - Added activation on click.
